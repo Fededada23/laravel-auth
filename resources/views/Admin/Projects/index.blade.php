@@ -24,8 +24,8 @@
                         @foreach ($projects as $project)
                         <tr>
                             <th scope="row">{{ $project->id }}</th>
-                            <td>{{ $project->titolo }}</td>
-                            <td>{{ $project->descrizione }}</td>
+                            <td>{{ $project->title }}</td>
+                            <td>{{ $project->slug }}</td>
                         </tr>                 
                         @endforeach
                     </tbody>
