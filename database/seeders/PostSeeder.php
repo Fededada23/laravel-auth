@@ -4,6 +4,9 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use App\Models\Post;
+use Illuminate\Generator as Faker;
+use Illuminate\Support\Str;
 
 class PostSeeder extends Seeder
 {
@@ -14,6 +17,6 @@ class PostSeeder extends Seeder
      */
     public function run()
     {
-        //
+        
     }
 }
