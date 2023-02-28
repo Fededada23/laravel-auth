@@ -7,7 +7,7 @@ use App\Http\Requests\UpdatePostRequest;
 use App\Models\Post;
 use App\Http\Controllers\Controller; 
 
-class PostController extends Controller
+class ProjectController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -18,7 +18,7 @@ class PostController extends Controller
     {
         $post = Post::all();
 
-        return view('admin.post.index', compact('post'));
+        return view('admin.project.index', compact('project'));
     }
 
     /**
@@ -28,7 +28,7 @@ class PostController extends Controller
      */
     public function create()
     {
-        return view('admin.post.create');
+        return view('admin.project.create');
     }
 
     /**
