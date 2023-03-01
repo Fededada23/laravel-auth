@@ -38,14 +38,25 @@ class ProjectController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(StorePostRequest $request)
-    {
+    {   
+
         $data = $request->validated();
         
-        $newProject = new Project();
+        //$newProject = new Project();
 
-        $newProject->fill($data);
+        
+        $slug = Project::generateSlug($request->title);
 
-        $newProject->save();
+
+        $data['slug'] = $slug;
+
+        
+        $newProject = Project::create($data);
+
+        //$newProject->fill($data);
+        
+
+        //$newProject->save();
 
         return redirect()->route('admin.projects.index')->with('message', 'Nuovo progetto creato');
     }
