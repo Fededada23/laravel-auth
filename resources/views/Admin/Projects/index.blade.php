@@ -33,6 +33,13 @@
                                 <a href="{{route('admin.projects.show', $project->slug)}}" title="Visualizza project" class="btn btn-sm btn-square btn-primary">
                                     <i class="fas fa-eye"></i>
                                 </a>
+                                <form class="d-inline-block" action="{{ route('admin.projects.destroy', $project->slug)}}" method="POST">
+                                    @csrf
+                                    @method('DELETE')
+                                    <button type="submit" class="btn btn-danger btn-sm btn-square">
+                                        <i class="fas fa-trash"></i>
+                                    </button>
+                                </form>
                             </td>   
                         </tr>                 
                         @endforeach
