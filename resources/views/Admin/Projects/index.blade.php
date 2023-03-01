@@ -17,7 +17,7 @@
                         <tr>
                             <th scope="col">Id</th>
                             <th scope="col">Titolo</th>
-                            <th scope="col">Descrizione</th>
+                            <th scope="col">slug</th>
                         </tr>
                     </thead>
                     <tbody>
