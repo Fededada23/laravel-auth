@@ -67,9 +67,9 @@ class ProjectController extends Controller
      * @param  \App\Models\Post  $post
      * @return \Illuminate\Http\Response
      */
-    public function show(Post $post)
+    public function show(Project $project)
     {
-        //
+        return view('admin.projects.show',compact('project'));
     }
 
     /**
@@ -78,9 +78,9 @@ class ProjectController extends Controller
      * @param  \App\Models\Post  $post
      * @return \Illuminate\Http\Response
      */
-    public function edit(Post $post)
+    public function edit(Project $project)
     {
-        //
+        return view('admin.projects.edit',compact('project'));
     }
 
     /**
@@ -90,7 +90,7 @@ class ProjectController extends Controller
      * @param  \App\Models\Post  $post
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdatePostRequest $request, Post $post)
+    public function update(UpdatePostRequest $request, Project $project)
     {
         //
     }
@@ -101,7 +101,7 @@ class ProjectController extends Controller
      * @param  \App\Models\Post  $post
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Post $post)
+    public function destroy(Project $project)
     {
         //
     }
