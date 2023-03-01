@@ -69,9 +69,9 @@ class ProjectController extends Controller
      * @param  \App\Models\Project  $project
      * @return \Illuminate\Http\Response
      */
-    public function show(Project $projects)
+    public function show(Project $project)
     {
-        return view('admin.projects.show', compact('projects'));
+        return view('admin.projects.show', compact('project'));
     }
 
     /**
@@ -92,13 +92,13 @@ class ProjectController extends Controller
      * @param  \App\Models\Project  $project
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdatePostRequest $request, Project $projects)
+    public function update(UpdatePostRequest $request, Project $project)
     {
         $data = $request->validated();
 
         $data['slug'] = Project::generateSlug($request->title);
 
-        $projects->update($data);
+        $project->update($data);
 
         return redirect()->route('admin.projects.index')->with('message', 'Modifica al progetto eseguita');
     }
@@ -109,9 +109,9 @@ class ProjectController extends Controller
      * @param  \App\Models\Project  $project
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Project $projects)
+    public function destroy(Project $project)
     {
-        $projects->delete();
+        $project->delete();
 
         return redirect()->route('admin.projects.index')->with('message','Il progetto è stato eliminato');
     }
