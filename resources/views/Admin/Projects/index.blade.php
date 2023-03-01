@@ -26,6 +26,11 @@
                             <th scope="row">{{ $project->id }}</th>
                             <td>{{ $project->title }}</td>
                             <td>{{ $project->slug }}</td>
+                            <td>
+                                <a href="{{route('admin.projects.edit', $project->slug)}}" title="Modifica project" class="btn btn-sm btn-square btn-warning">
+                                    <i class="fas fa-edit"></i>
+                                </a>
+                            </td>   
                         </tr>                 
                         @endforeach
                     </tbody>

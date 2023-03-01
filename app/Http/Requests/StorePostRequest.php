@@ -28,4 +28,19 @@ class StorePostRequest extends FormRequest
             'content' =>['nullable']
         ];
     }
+
+    /**
+     * Get the error messages for the defined validation rules.
+     *
+     * @return array
+    */
+    public function messages()
+    {
+        return [
+            'title.required' => 'Il titolo è obbligatorio',
+            'title.unique' => 'Questo titolo è già stato assegnato ad un progetto',
+            'title.max' => 'Il titolo non deve essere più lungo di :max caratteri',
+            'description.max' => 'La descrizione non può contenere più di :max caratteri'
+        ];
+    }
 }
