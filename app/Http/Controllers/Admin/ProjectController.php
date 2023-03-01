@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers\Admin;
 
+use Illuminate\Support\Facades\Auth;
 use App\Http\Requests\StorePostRequest;
 use App\Http\Requests\UpdatePostRequest;
 use App\Models\Project;
 use App\Http\Controllers\Controller; 
-use Illuminate\Support\Facades\Auth;
 
 
 class ProjectController extends Controller
@@ -66,39 +66,39 @@ class ProjectController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Post  $post
+     * @param  \App\Models\Project  $project
      * @return \Illuminate\Http\Response
      */
-    public function show(Project $project)
+    public function show(Project $projects)
     {
-        return view('admin.projects.show',compact('project'));
+        return view('admin.projects.show', compact('projects'));
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Post  $post
+     * @param  \App\Models\Project  $project
      * @return \Illuminate\Http\Response
      */
-    public function edit(Project $project)
+    public function edit(Project $projects)
     {
-        return view('admin.projects.edit',compact('project'));
+        return view('admin.projects.edit', compact('projects'));
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \App\Http\Requests\UpdatePostRequest  $request
-     * @param  \App\Models\Post  $post
+     * @param  \App\Models\Project  $project
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdatePostRequest $request, Project $project)
+    public function update(UpdatePostRequest $request, Project $projects)
     {
         $data = $request->validated();
 
         $data['slug'] = Project::generateSlug($request->title);
 
-        $project->update($data);
+        $projects->update($data);
 
         return redirect()->route('admin.projects.index')->with('message', 'Modifica al progetto eseguita');
     }
@@ -106,12 +106,12 @@ class ProjectController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Post  $post
+     * @param  \App\Models\Project  $project
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Project $project)
+    public function destroy(Project $projects)
     {
-        $project->delete();
+        $projects->delete();
 
         return redirect()->route('admin.projects.index')->with('message','Il progetto è stato eliminato');
     }
