@@ -30,6 +30,9 @@
                                 <a href="{{route('admin.projects.edit', $project->slug)}}" title="Modifica project" class="btn btn-sm btn-square btn-warning">
                                     <i class="fas fa-edit"></i>
                                 </a>
+                                <a href="{{route('admin.projects.show', $project->slug)}}" title="Visualizza project" class="btn btn-sm btn-square btn-primary">
+                                    <i class="fas fa-eye"></i>
+                                </a>
                             </td>   
                         </tr>                 
                         @endforeach
