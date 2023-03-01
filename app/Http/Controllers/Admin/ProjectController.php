@@ -6,6 +6,8 @@ use App\Http\Requests\StorePostRequest;
 use App\Http\Requests\UpdatePostRequest;
 use App\Models\Project;
 use App\Http\Controllers\Controller; 
+use Illuminate\Support\Facades\Auth;
+
 
 class ProjectController extends Controller
 {
@@ -92,7 +94,13 @@ class ProjectController extends Controller
      */
     public function update(UpdatePostRequest $request, Project $project)
     {
-        //
+        $data = $request->validated();
+
+        $data['slug'] = Project::generateSlug($request->title);
+
+        $project->update($data);
+
+        return redirect()->route('admin.projects.index')->with('message', 'Modifica al progetto eseguita');
     }
 
     /**
@@ -103,6 +111,8 @@ class ProjectController extends Controller
      */
     public function destroy(Project $project)
     {
-        //
+        $project->delete();
+
+        return redirect()->route('admin.projects.index')->with('message','Il progetto è stato eliminato');
     }
 }
